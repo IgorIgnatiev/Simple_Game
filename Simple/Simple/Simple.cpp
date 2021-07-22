@@ -11,7 +11,7 @@ struct S_Point
 int main()
 {
     RenderWindow window(VideoMode(1000, 500), "Game");
-    S_Point player_1_pos(1, 1);
+    S_Point player_1_pos(5, 1);
     S_Point player_2_pos(975, 200);
     S_Point ball_pos(400, 200);
 
@@ -29,10 +29,16 @@ int main()
             }
             if (event.type == Event::KeyPressed) {
                 if (event.key.code == Keyboard::W) {
-                    player_1_pos.x--;
+                    player_1_pos.y-=3;
                 }
                 if (event.key.code == Keyboard::S) {
-                    player_1_pos.y++;
+                    player_1_pos.y+=3;
+                }
+                if (event.key.code == Keyboard::Up) {
+                    player_2_pos.y -= 3;
+                }
+                if (event.key.code == Keyboard::Down) {
+                    player_2_pos.y += 3;
                 }
             }
         }
